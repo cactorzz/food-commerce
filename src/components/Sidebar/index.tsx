@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 import { Container } from "./styles"
 
 import { ReactComponent as BurguerIcon } from '../../assets/burger.svg'
@@ -8,8 +10,14 @@ import { ReactComponent as IceCreamIcon } from '../../assets/ice-cream.svg'
 import menuImg from '../../assets/menu.svg'
 
 export function Sidebar() {
-  return <Container>
-    <button type="button">
+  const [MenuOpen, setMenuOpen] = useState(false)
+
+  const handleToggleMenu = () => {
+    setMenuOpen(!MenuOpen)
+  }
+
+  return <Container isMenuOpen={MenuOpen}>
+    <button type="button" onClick={handleToggleMenu}>
       <img src={menuImg} alt='Abrir e fechar o menu' />
     </button>
     <nav>
