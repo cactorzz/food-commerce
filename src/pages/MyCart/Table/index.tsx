@@ -3,6 +3,7 @@ import { useCart } from "../../../hooks/useCart"
 
 import { TableDesktop } from "./TableDesktop"
 import { TableMobile } from "./TableMobile"
+import { EmptyCart } from "../../../components/EmptyCart"
 
 export function Table() {
   const [windowWidth, setWindowWidth] = useState(document.documentElement.clientWidth)
@@ -23,7 +24,7 @@ export function Table() {
   },[])
 
   if (cart.length === 0)
-    return <h1>Ops! Parece que seu carrinho está vazio :(</h1>
+    return <EmptyCart title='Ops! Parece que seu carrinho está vazio :(' />
 
   return windowWidth > 768 ? <TableDesktop /> : <TableMobile />
 }
