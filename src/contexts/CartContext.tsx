@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useEffect, useState } from 'react'
+import { ReactNode, createContext, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { SnackData } from '../interfaces/SnackData'
