@@ -17,6 +17,32 @@ export const schema = yup
       .required('O celular é obrigatorio.')
       .transform((value) => value.replace(/[^\d]/g, ''))
       .test('validateMobile', 'Celular deve ser válido.', (value) => isValidPhone(value)),
+    document: yup
+      .string()
+      .required('O CPF/CNPJ é obrigatório.')
+      .transform((value) => value.replace(/[^\d]/g, ''))
+      .test('validateDocument', 'CPF/CNPJ deve ser válido.', (value) => isValidCPF(value) || isValidCNPJ(value)),
+    zipCode: yup
+      .string()
+      .required('O CEP é obrigatório.')
+      .transform((value) => value.replace(/[^\d]/g, '')),
+    street: yup
+      .string()
+      .required('O endereço é obrigatório.'),
+    number: yup
+      .string()
+      .required('O número é obrigatório.'),
+    complement: yup
+      .string(),
+    neighborhood: yup
+      .string()
+      .required('O bairro é obrigatório.'),
+    city: yup
+      .string()
+      .required('A cidade é obrigatória.'),
+    state: yup
+      .string()
+      .required('O estado é obrigatório.'),
   })
   .required()
 
